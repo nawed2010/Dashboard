@@ -1,0 +1,108 @@
+/*Main content*/
+body{
+  background-color: #eee;
+}
+html,body{
+    height: 100%
+}
+
+#loginPage{
+ border: 4px double black;	
+ width: 50%;
+ margin: 4% auto;
+ min-height: 90%;
+}
+
+#changePassword{
+ border: 4px double black;	
+ width: 50%;
+ margin: 4% auto;
+ min-height: 90%;
+}
+.main-view-content {
+	/*  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+    /* margin-right: 15%; */
+	margin-left: 5%;
+	margin-top: 5%;
+}
+
+/** Navigation bar */
+#navbar{
+}
+
+/*Project Overview Page*/
+
+/* Icon when the collapsible content is shown */
+/* .btn:after {
+	font-family: "Glyphicons Halflings";
+	content: "\e114";
+}
+ */
+/* Icon when the collapsible content is hidden */
+.btn.collapsed:after {
+	content: "\e080";
+}
+
+/* Footer */
+
+
+/*Drop down*/
+.dropdownMenus{
+	    margin: 20px;
+}
+
+.dropdown{
+	    display: inline-block;
+}
+
+/*DataUpload page*/
+#uploadBox{
+	margin-top: 5%;
+}
+.custom-message{
+	    max-width: 50%;
+}
+.container {
+	border-left: 1px solid #eee;
+	border-right: 1px solid #eee;
+    padding: 0 !important;
+}
+/*  #left{
+    position:absolute;
+    left: 15px;  
+} */
+ #pdf{
+    position:absolute;
+    left: 15px;  
+}
+ #xl{
+    position:absolute;
+    left: 100px;  
+}
+
+
+
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  padding-top:20px;
+  bottom:5px;
+  text-align:centre;
+} 
+
+li {
+	list-style-type: none;
+}
+
+/* #account{
+    position:absolute;
+    left: 200px;  
+} */

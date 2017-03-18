@@ -1,0 +1,95 @@
+<div id="projectsOverviewPage" class="view-content">
+	<div class="form-group">
+		<label for="accountSelectId">Select Account:</label>
+			 <select id="accountSelectId"
+				class="form-control" ng-model="accountSelectedObj"
+				ng-change="refreshValues(true)"
+				ng-options="account.name for account in user.accounts">
+				<option value="" ng-if="false" ng-selected="true"></option>
+			</select> 
+		<label for="sel1">Select Project:</label> 	
+			<select id="projectSelectId" class="form-control"
+				ng-model="projectSelectedObj" ng-change="refreshValues(true)"
+				ng-options="project.name for project in projects">
+				<option value="" ng-if="false" ng-selected="true"></option>
+			</select> 
+		<label for="sel1">Select Module:</label> 	
+			<select id="moduleSelectId"
+				class="form-control" ng-model="moduleSelectedObj"
+				ng-click="refreshValues(true)"
+				ng-options="module.name for module in modules">
+				<option value="" ng-if="false"></option>
+			</select> 
+		<label for="sel1">Select Release:</label> 
+			<select id="releaseSelectId" 
+				class="form-control" ng-model="releaseSelectedObj" ng-model="modalRequested"
+				ng-click="refreshValues(true)"
+				ng-options="release.name for release in releases">
+				<option value="">Choose a Release</option>
+			</select>
+	</div>
+
+</div>
+<!-- Project Information -->
+<!-- Modal -->
+
+<div id="releaseModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+
+		<div class="modal-content">
+			<div class="modal-header" ng-class="release.class">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">
+					<strong>{{release.name|uppercase}}</strong>
+				</h4>
+			</div>
+			<div class="modal-body" class="panel {{release.class}}">
+				<table class="table table-striped">
+					<tbody>
+						<tr ng-if="release.release_actual_id">
+							<td>ID:</td>
+							<td>{{release.release_actual_id}}</td>
+						</tr>
+						<tr ng-if="release.status">
+							<td>Status:</td>
+							<td>{{release.status}}</td>
+						</tr>
+						<tr ng-if="release.description">
+							<td>Description:</td>
+							<td>{{release.description}}</td>
+						</tr>
+						<tr>
+							<td>QA Start:</td>
+							<td>{{release.qa_start_date | dateTimeFilter }}</td>
+						</tr>
+						<tr>
+							<td>QA End:</td>
+							<td>{{release.qa_end_date | dateTimeFilter }}</td>
+						</tr>
+						<tr>
+							<td>UAT Start:</td>
+							<td>{{release.uat_start_date | dateTimeFilter}}</td>
+						</tr>
+						<tr>
+							<td>UAT End:</td>
+							<td>{{release.uat_end_date | dateTimeFilter}}</td>
+						</tr>
+						<tr>
+							<td>Production Date:</td>
+							<td>{{release.prod_Release | dateTimeFilter}}</td>
+						</tr>
+					</tbody>
+				</table>
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default btn-xs" data-dismiss="modal" id="pdf"><span class="glyphicon glyphicon-save"></span> PDF</button>
+				<button type="button" class="btn btn-default btn-xs" data-dismiss="modal" id="xl"><span class="glyphicon glyphicon-save"></span> XL</button>
+				<button type="button" class="btn btn-default btn-xs" data-dismiss="modal" id="close">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

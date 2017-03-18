@@ -1,0 +1,121 @@
+
+<div id="dataUploadPage">
+	<div id="uploadImage">
+		<img alt="NA" src="images/uploadFileImage.png">
+	</div>
+
+	<div class="ui small basic icon buttons">
+		<strong>Download Templates:</strong>
+		&nbsp; &nbsp; <a target="_self" href="sampleFiles/risks.xlsx" download="risks.xlsx">
+		<button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-download-alt"></span> RISK</button></a> 
+		&nbsp; &nbsp; <a target="_self"href="sampleFiles/defects.xlsx" download="defects.xlsx">
+		<button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-download-alt"></span> DEFECT</button></a> 
+	</div>
+
+<!-- 	<strong>Download Templates:</strong>&nbsp; &nbsp; <a target="_self"
+		href="sampleFiles/risks.xlsx" download="risks.xlsx">Download Risks
+		template</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a target="_self"
+		href="sampleFiles/defects.xlsx" download="defects.xlsx">Download
+		Defects template</a> -->
+	<div id="uploadBox">
+		<div ng-if="errorMessage" class="alert alert-danger custom-message">{{errorMessage}}</div>
+		<div ng-if="successMessage" class="alert alert-success custom-message">{{successMessage}}</div>
+		<label class="btn btn-default btn-file"> <input
+			class="btn btn-default btn-lg" type="file" file-model="myFile" />
+		</label>
+		<button class="btn btn-success btn-lg" ng-click="uploadFile()"><span class="glyphicon glyphicon-upload"></span>Upload</button>
+	</div>
+	the data entered is
+<!-- {{risk[0].priority}} -->
+
+{{risks[1].raised_date}}
+
+		
+{{risk[0].risk_actual_id}}
+
+File type:
+{{fileType}}
+</div>
+
+
+
+<!-- Data Upload Information for defect -->
+<!-- Modal -->
+
+<div id="uploadModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		Modal content
+
+		<div class="modal-content" >
+			<div class="modal-header" ng-class="successResponse.data">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">
+					<strong>{{fileType|uppercase}}</strong>
+				</h4>
+			</div>
+			<div class="modal-body" class="panel {{successResponse.data}}">
+				<table class="table table-striped" ng-repeat = "risk in risks" >
+					<tbody>
+						<tr ng-show = fileType=="risk">
+							<td>ID:</td>
+							<td>{{risk.defect_actual_id}}</td>
+						</tr>
+						<tr ng-show = fileType=="defect">
+							<td>ID:</td>
+							<td>{{risk.defect_actual_id}}</td>
+						</tr>
+						<tr>
+							<td>ProjectID:</td>
+							<td>{{risk.release_actual_id}}</td>
+						</tr>
+						<tr>
+							<td>Name:</td>
+							<td>{{risk.description}}</td>
+						</tr>
+						<tr>
+							<td>Priority:</td>
+							<td>{{risk.priority}}</td>
+						</tr>
+						<tr>
+							<td>Start Date:</td>
+							<td>{{risk.raised_date | date:'medium' }}</td>
+						</tr>
+						<tr>
+							<td>End Date:</td>
+							<td>{{risk.resolution_date | date:'medium' }}</td>
+						</tr>
+						<tr>
+							<td>Remarks:</td>
+							<td>{{risk.remarks}}</td>
+						</tr>
+						
+					</tbody>
+					</br>
+				</table>
+				
+				
+			</div>
+			<div class="modal-footer">
+				&nbsp; &nbsp; <a target="_self" href="sampleFiles/risks.xlsx" download="services/upload/risk">
+				<button type="button" class="btn btn-default btn-xs" data-dismiss="modal" id="pdf"><span class="glyphicon glyphicon-save"></span> PDF</button>
+				&nbsp; &nbsp; <a target="_self"href="sampleFiles/risks.xlsx" download="risks.xlsx">
+				<button type="button" class="btn btn-default btn-xs" data-dismiss="modal" id="xl"><span class="glyphicon glyphicon-save"></span> XL</button>
+				<button type="button" class="btn btn-default btn-xs" data-dismiss="modal" id="close">Close</button>
+			</div>	
+				<!-- <div>
+					<a class="left carousel-control" href="uploadModal" role="button" data-slide="prev">
+      				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      				<span class="sr-only"></span></a>
+      				<a class="right carousel-control" href="uploadModal" role="button" data-slide="next">
+    			  	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+     				 <span class="sr-only"></span></a>	
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

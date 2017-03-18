@@ -1,0 +1,74 @@
+
+<!-- <nav class = "navbar navbar-inverse" role = "navigation">
+<div class = "navbar-header">
+      <button type = "button" class = "navbar-toggle" 
+         data-toggle = "collapse" data-target = "#example-navbar-collapse">
+         <span class = "sr-only">Toggle navigation</span>
+         <span class = "icon-bar"></span>
+         <span class = "icon-bar"></span>
+         <span class = "icon-bar"></span>
+      </button>
+  </div>
+<div class = "collapse navbar-collapse" id = "example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                                <li class="active"><a data-toggle="pill" href="#home">Project
+                                                                Overview</a></li>
+                                <li ng-if="globals.currentUser.modifyAuth"><a data-toggle="pill"
+                                                href="#projects">Projects</a></li>
+                                <li ng-if="globals.currentUser.modifyAuth"><a data-toggle="pill"
+                                                href="#resource">Resource</a></li>
+                                <li ng-if="globals.currentUser.modifyAuth"><a data-toggle="pill"
+                                                href="#dataUpload">Data Upload</a></li>
+                                <li class="dropdown"><a class="dropdown-toggle"
+                                                data-toggle="dropdown">{{globals.currentUser.name}}<span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                                <li><a href="#login"><span class="glyphicon glyphicon-log-out"> Logout</span></a></li>
+                                                                <li><a href="#changepassword"><span class="glyphicon glyphicon-edit"> Change Password</a></li>
+                                                </ul>
+                                </li>
+                </ul>
+</div>
+</nav> -->
+<nav id="menu">
+  <label for="menu-toggle" class="menu-label">Menu</label>
+  
+ <input id="menu-toggle" type="checkbox" class="menu-toggle" /> 
+                <div class="container">
+  <div class="row page-content-wrapper">
+                <ul>
+                                <li><a data-toggle="pill" href="#home" ng-model="tab_name" ng-data="Project
+                                                                Overview">Project
+                                                                Overview</a></li>
+                                <li ng-if="globals.currentUser.modifyAuth"><a 
+                                                href="#projects" ng-model="tab_name" ng-data="Projects"><i class="fa fa-tasks"></i>Projects</a></li>
+                                <li ng-if="globals.currentUser.modifyAuth"><a
+                                                href="#resource"><i class="fa fa-user"></i>Resource</a></li>
+                                <li ng-if="globals.currentUser.modifyAuth"><a 
+                                                href="#dataUpload"><i class="fa fa-upload"></i>Data Upload</a></li>
+                          <!--       <li class="dropdown"><a class="dropdown-toggle"
+                                                data-toggle="dropdown">{{globals.currentUser.name}}<span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                                <li><a href="#login">Logout</a></li>
+                                                                <li><a>Change Password</a></li>
+                                                </ul>
+                                </li> -->
+                                <li ng-if="globals.currentUser.modifyAuth"><a 
+                                                href="#login"><i class="fa fa-user"></i>{{globals.currentUser.name}}</a></li>
+                </ul>
+  </div></div>
+</nav> 
+
+<!-- <div class="col-md-3 sidebar-wrapper">
+                                                                <ul class="nav nav-pills nav-stacked sidebar-nav left-nav">
+                                                                                <li class="db-nav"><a href="#home"><i class="fa fa-home"></i> Project
+                                                                Overview</a></li>
+                                                                                <li><a href="#groups"><i class="fa fa-shield"></i> Groups</a></li>
+                                                                                <li class="tasks-nav"><a href="#projects"><i class="fa fa-tasks"></i> Projects</a></li>
+                                                                                <li class="users-nav"><a href="#resource"><i class="fa fa-user"></i> Resources</a></li>
+                                                                                <li class="mod-nav"><a href="#dataUpload"><i class="fa fa-upload"></i> Data Upload </a></li>
+                                                                                <li class="pass-nav"><a href="#password"><i class="fa fa-key"></i> Change <span><i ng-click="changeemail=false">Password</i></span> / <span><i ng-click="changeemail=true">Email</i></span> </a></li>
+                                                                                <li class="users-nav"><a href="#login"><i class="fa fa-sign-out"></i>LogOut</a></li>
+                                                                                <li class="sys-nav"><a href="#system"><i class="fa fa-wrench"></i> System</a></li>
+                                                                </ul>
+                                                </div> -->
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property name="LOG_HOME" value="/dashboard/log" />
+	<property name="LOG_NAME" value="dash_board" />
+	<appender name="CONSOLE-LOGGING" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%d -- %-5p %c -- %m\n</pattern>
+		</layout>
+	</appender>
+
+	<appender name="FILE-LOGGING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/${LOG_NAME}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+		  <fileNamePattern>${LOG_HOME}/archived/${LOG_NAME}.log.%i</fileNamePattern>
+		  <minIndex>1</minIndex>
+		  <maxIndex>9</maxIndex>
+		</rollingPolicy>
+
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+		  <maxFileSize>50MB</maxFileSize>
+		</triggeringPolicy>
+
+		<encoder>
+			<Pattern>
+				%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n
+			</Pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="org.cts.dashboard">
+		<level value="INFO" />
+	</logger>
+	
+	<logger name="org.cts.dashbard.web">
+		<level value="DEBUG" />
+	</logger>
+	
+	<logger name="org.cts.dashboard.service">
+		<level value="DEBUG" />
+	</logger>
+	
+	<logger name="org.cts.dashboard.dao">
+		<level value="DEBUG" />
+	</logger>
+	
+	<root level="INFO">
+		<appender-ref ref="FILE-LOGGING" />
+		<appender-ref ref="CONSOLE-LOGGING" />
+	</root>
+	
+</configuration> 

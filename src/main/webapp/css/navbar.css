@@ -1,0 +1,68 @@
+#menu {
+	width: 5000%;
+	min-height: 40px;
+	position: relative;
+	background-color: rgb(52, 85, 154); 
+}
+#menu a {
+	display: inline-block;
+	padding: 10px 4% 0px 4%;
+	font: 400 16px/32px 'Courier', sans-serif;
+	min-height: 40px;
+	color:white;
+	text-decoration: none;
+	font-weight:bold;
+	transition: .5s;  
+}
+#menu a:hover {
+	color: red;
+	background-color: blue;
+}
+
+.menu-toggle, .menu-label {
+    display: none;
+}
+
+@media screen and (max-width:640px) {
+#menu {
+	max-width: 100%;
+}
+}
+
+@media screen and (max-width:775px) {
+#menu a {
+	max-width: 100%;
+	padding: 0px 5px 0px 5px;
+	float: none;
+	text-align: center;
+  display: block;
+}
+    
+  .menu-label {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    text-transform: uppercase;
+ 
+  }
+  
+  .menu-toggle {
+    display: none;
+  }
+  
+  .menu-toggle + div {
+    display: none;
+  }
+  
+  .menu-toggle:checked + div {
+    display: block;
+  }
+}
+
+@media screen and (max-width:2222px) {
+#menu {
+	max-width: 100%;
+}
+}
