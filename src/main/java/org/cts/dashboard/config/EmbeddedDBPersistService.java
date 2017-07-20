@@ -27,8 +27,16 @@ public class EmbeddedDBPersistService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmbeddedDBPersistService.class);
 	private String backUpTime;
-	private static final String BACKUP_FILE_LOC = "\\dashboard\\data\\dbsql.sql";
+	private static String BACKUP_FILE_LOC = "";
 	private static final String PORTAL_DB_NAME = "portalDB";
+
+	static {
+		if(System.getProperty("os.name").startsWith("Windows")){
+			BACKUP_FILE_LOC = "\\dashboard\\data\\dbsql.sql";
+		}else {
+			BACKUP_FILE_LOC = "/Users/Shared/dashboard/data/dbsql.sql";
+		}
+	}
 	
 	@Bean
 	public DataSource dataSource() {
