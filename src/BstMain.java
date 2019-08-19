@@ -37,11 +37,11 @@ public class BstMain {
 
         System.out.println("Height " +findHeight(root));
 
-        //root = deleteNode(root, 15);
+        root = deleteNode(root, 15);
 
-        //inorderTraversal(root);
+        inorderTraversal(root);
         System.out.println("\n");
-        //reorderTraversal(root);
+        preorderTraversal(root);
         bfsTraversal(root);
         System.out.println("\n");
 
@@ -49,28 +49,49 @@ public class BstMain {
         System.out.println("Is Tree a BST- "+isTreeBst(root)); //Recursion using property of tree as left will be small and right large
         System.out.println("Is Tree a BST- "+isTreeBstBoundMethod(root, Integer.MIN_VALUE, Integer.MAX_VALUE)); //Checking if each node is falling in the bound
 
+        System.out.println("\n");
 
-        //TODO -- This is not working fix it
-        System.out.println("Is Tree a BST- "+isTreeBstInorderMethod(root, Integer.MIN_VALUE));
+        BstNode root1 = new BstNode(10, null, null);
+        root1.setLeft(new BstNode(11, null, null));
+        root1.setLeft(new BstNode(20, null, null));
+        System.out.println("Is Tree a BST- "+isTreeBstInorderMethod(root1));
 
         //TODO -- Implement below func
         //System.out.println(inorderSuccessor(root, 15));
         //System.out.println(inorderPredecessor(root, 15));
     }
 
+    public static BstNode prvNode = null;
 
-    public static boolean isTreeBstInorderMethod(BstNode root, int prv) {
+    public static boolean isTreeBstInorderMethod(BstNode root) {
         if(root == null) {
             return true;
         }
 
-        if(isTreeBstInorderMethod(root.getLeft(), root.getData())
+        boolean flag1 = isTreeBstInorderMethod(root.getLeft());
+
+        boolean flag2 = false;
+
+        if(prvNode == null || root.getData() >= prvNode.getData()){
+            flag2 = true;
+            prvNode = root;
+        }
+
+        boolean flag3 = isTreeBstInorderMethod(root.getRight());
+
+        if(flag1 && flag2 && flag3){
+            return true;
+        } else {
+            return false;
+        }
+
+        /*if(isTreeBstInorderMethod(root.getLeft(), root.getData())
                 && (root.getData() > prv)
                 && isTreeBstInorderMethod(root.getRight(), root.getData())) {
             return true;
         } else {
             return false;
-        }
+        }*/
     }
 
     //Better than isTreeBst in terms of performance - O(n)
