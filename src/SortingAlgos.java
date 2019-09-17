@@ -17,20 +17,16 @@ public class SortingAlgos {
         print(array);
         //bubbleSort(array, array.length);
         //selectionSort(array, array.length);
-        insertionSort(array, array.length);
+        //insertionSort(array, array.length);
+        mergeSort(array);
         print(array);
-       // Collections.sort();
-        HashMap map = new HashMap();
-        map.size();
-
-
     }
 
     /**
      * Check for adjacent element, in each pass largest element will come to its due location, with each pass
      * range of inner loop should decrease as largest element is geeting placed at its position
      *
-     * @param array
+     * @param
      */
     private static void bubbleSort(int[] a, int n) {
 
@@ -95,5 +91,61 @@ public class SortingAlgos {
             System.out.print(" " + a);
         }
         System.out.println("\n");
+    }
+
+    /*** 0 1 2 3 4 5 --Mid = 5/2 = 2 or 6/2 = 3
+     * Merge sort
+     */
+    private static void mergeSort(int[] arr) {
+        int n = arr.length;
+
+        if(n < 2) {
+            return;
+        }
+
+        int mid = n / 2;   //Find mid point for dividing the array
+
+        int left[] = new int[mid];
+        int right[] = new int[n-mid];
+
+        for(int i = 0; i < mid ; i++) {
+            left[i] = arr[i];
+        }
+
+        for(int i = mid; i < n ; i++) {
+            right[i-mid] = arr[i];
+        }
+
+        mergeSort(left);
+        mergeSort(right);
+        merge(left, right, arr);
+    }
+
+    private static void merge(int[] left, int[] right, int[] arr) {
+        int l = 0, r = 0, k = 0;
+
+        while(l < left.length && r < right.length) {
+            if(left[l] <= right[r]) {
+                arr[k] = left[l];
+                l++;
+            } else {
+                arr[k] = right[r];
+                r++;
+            }
+            k++;
+        }
+
+        //If any of the list elements are still left
+        while(l < left.length) {
+            arr[k] = left[l];
+            k++;
+            l++;
+        }
+
+        while(r < right.length) {
+            arr[k] = right[r];
+            k++;
+            r++;
+        }
     }
 }

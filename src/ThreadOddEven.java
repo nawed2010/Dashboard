@@ -54,7 +54,7 @@ public class ThreadOddEven {
             }
         });
 
-        even.start();
         odd.start();
+        even.start();
     }
 }
