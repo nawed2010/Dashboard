@@ -1,11 +1,3 @@
-import com.sun.source.tree.BinaryTree;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 /**
  * Created by nawed2010 on 16/07/19.
  */
@@ -24,7 +16,7 @@ public class SortingAlgos {
 
     /**
      * Check for adjacent element, in each pass largest element will come to its due location, with each pass
-     * range of inner loop should decrease as largest element is geeting placed at its position
+     * range of inner loop should decrease as largest element is getting placed at its position
      *
      * @param
      */
@@ -65,7 +57,7 @@ public class SortingAlgos {
 
     /***
      * Divide array in two parts, left part is sorted, right is unsorted, while moving an element from right
-     * to left it will get in its due position on the left side
+     * to left it will get on its due position on the left side
      * @param a
      * @param n
      */

@@ -1,7 +1,7 @@
 package com.excel.io;
 
+import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,14 +14,18 @@ public class ExcelMain {
         System.out.println("==============================");
         //System.out.println(new File(".").getAbsolutePath());
 
-        List<String> lines = Files.lines(Paths.get("excel_java.csv"))
+        File file = new File("excel_java.csv");
+
+        /*List<String> lines = Files.lines(Paths.get("excel_java.csv"))
+                .skip(1).collect(Collectors.toList());*/
+
+        List<String> lines = Files.lines(file.toPath())
                 .skip(1).collect(Collectors.toList());
 
         List<String> uniqueCountries = lines.stream()
                 .map(o -> o.split(",")[4]).distinct().collect(Collectors.toList());
 
         System.out.println(uniqueCountries);
-
         for(String country : uniqueCountries) {
             System.out.println("Processing for "+country);
             lines.stream().filter(o -> country.equalsIgnoreCase(o.split(",")[4]))
